@@ -30,7 +30,8 @@ if [ ! -f "15210-v1.5-4248.apk" ]; then
 fi
 
 if [ ! -f "15210-v1.5-4248-noads.apk" ]; then
-	xdelta3 -d -f -s 15210-v1.5-4248.apk lib/patch.xdelta 15210-v1.5-4248-noads.apk
+	chmod +x lib/xdelta3
+	lib/xdelta3 -d -f -s 15210-v1.5-4248.apk lib/patch.xdelta 15210-v1.5-4248-noads.apk
 	if [ ! $? -eq 0 ]; then
 		printf "Failed to apply nethersx2 patch to APK!\n"
 		exit 1
